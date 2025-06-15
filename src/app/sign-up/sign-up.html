@@ -1,0 +1,78 @@
+<div class="login-root">
+  <div
+    class="box-root flex-flex flex-direction--column"
+    style="min-height: 100vh; flex-grow: 1"
+  >
+    <div
+      class="box-root padding-top--24 flex-flex flex-direction--column"
+      style="flex-grow: 1; z-index: 9"
+    >
+      <div
+        class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center"
+      >
+        <h1><a href="" rel="dofollow">Angular Form</a></h1>
+      </div>
+      <div class="formbg-outer">
+        <div class="formbg">
+          <div class="formbg-inner padding-horizontal--48">
+            <span class="padding-bottom--15">Sign in to your account</span>
+
+            <form id="stripe-login" [formGroup]="regForm">
+              <div class="field padding-bottom--24">
+                <label for="email">UserName</label>
+                <input formControlName="userName" type="text" name="username" />
+              </div>
+
+              <div
+                *ngIf="regForm.get('userName')?.touched && regForm.get('userName')?.errors"
+                class="error-message"
+              >
+                <span *ngIf="regForm.get('userName')?.errors?.['required']"
+                  >User name is required</span
+                >
+                <span *ngIf="regForm.get('userName')?.errors?.['minlength']"
+                  >User name required minlength 4 characters</span
+                >
+                <span *ngIf="regForm.get('userName')?.errors?.['maxlength']"
+                  >User name required minlength 8 characters</span
+                >
+                <span *ngIf="regForm.get('userName')?.errors?.['whiteSpace']"
+                  >User name required no space</span
+                >
+                <span *ngIf="regForm.get('userName')?.errors?.['userExist']"
+                  >User name exist</span
+                >
+              </div>
+
+              <div class="field padding-bottom--24">
+                <label for="email">Email</label>
+                <input formControlName="email" type="email" name="email" />
+              </div>
+              <div class="field padding-bottom--24">
+                <div class="grid--50-50">
+                  <label for="password">Password</label>
+                </div>
+                <input
+                  formControlName="password"
+                  type="password"
+                  name="password"
+                />
+              </div>
+
+              <div class="field padding-bottom--24">
+                <button
+                  (click)="signUp()"
+                  type="submit"
+                  class="submit"
+                  name="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

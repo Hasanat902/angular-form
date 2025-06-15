@@ -8,10 +8,11 @@ import {
 } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { TemplateForm } from './template-form/template-form';
+import { SignUp } from "./sign-up/sign-up";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ReactiveFormsModule, NgIf, TemplateForm],
+  imports: [RouterOutlet, ReactiveFormsModule, NgIf, TemplateForm, SignUp],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
